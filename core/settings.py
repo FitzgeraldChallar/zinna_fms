@@ -131,8 +131,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # collectstatic will place files here
 # WhiteNoise compressed manifest storage for long-term cache headers
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_URL = '/media/slips'
+MEDIA_ROOT = '/var/media/slips'
 
 # ----------------------
 # Security hardening (only applied when DEBUG=False)
