@@ -131,16 +131,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # collectstatic will place files here
 # WhiteNoise compressed manifest storage for long-term cache headers
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files (for uploaded documents)
-MEDIA_ROOT = "/mnt/data/media"
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # ----------------------
 # Security hardening (only applied when DEBUG=False)
 # ----------------------
 if not DEBUG:
     # When behind a proxy (Render, Heroku, etc.), this header tells Django the request is secure
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') 
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Cookies
     SESSION_COOKIE_SECURE = True
