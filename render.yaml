@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: zinna-financial-system
+    env: python
+    plan: starter
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn core.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --log-file -"
+    disk:
+      name: media
+      mountPath: /var/media
+    staticPublishPath: /var/media
+    routes:
+      - type: static
+        name: media
+        path: /media/*
+        dir: /var/media
