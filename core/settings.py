@@ -133,8 +133,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MEDIA_URL = '/media/slips'
-MEDIA_ROOT = '/var/media/slips'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/media/'
 
 # ----------------------
 # Security hardening (only applied when DEBUG=False)
