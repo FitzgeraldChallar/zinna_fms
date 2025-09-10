@@ -29,10 +29,14 @@ MEDIA_DIR_NAME = "media"
 # Helper function
 # -------------------------------
 def handle_uploaded_file(f):
+    import os
+
     # Step 1: Save locally first
+    base_filename = os.path.basename(f.name)  # <-- strip folder names
     local_storage = FileSystemStorage(location=UPLOAD_DIR)
-    filename = local_storage.save(f.name, f)
+    filename = local_storage.save(base_filename, f)
     file_path = local_storage.path(filename)
+
 
     # Step 2: Clone or pull the repo
     if not os.path.exists(MEDIA_REPO_PATH):
@@ -54,7 +58,7 @@ def handle_uploaded_file(f):
         pass
 
     # Step 5: Return public URL
-    public_url = f"https://zinna-files.onrender.com/{MEDIA_DIR_NAME}/{filename}"
+    public_url = f"https://zinna-files.onrender.com/media/{filename}"
     return public_url
 
 # -------------------------------
