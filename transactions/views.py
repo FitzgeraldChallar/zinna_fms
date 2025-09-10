@@ -54,7 +54,7 @@ def handle_uploaded_file(f):
         pass
 
     # Step 5: Return public URL
-    public_url = f"https://zinna-files.onrender.com/{filename}"
+    public_url = f"https://zinna-files.onrender.com/{MEDIA_DIR_NAME}/{filename}"
     return public_url
 
 # -------------------------------
