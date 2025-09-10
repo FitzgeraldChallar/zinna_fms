@@ -104,7 +104,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Uploaded files
-MEDIA_URL = 'https://zinna-files.onrender.com'
+MEDIA_URL = 'https://zinna-files.onrender.com/media/'
 MEDIA_ROOT = '/var/media/'   # your Render disk mount
 
 # ----------------------
