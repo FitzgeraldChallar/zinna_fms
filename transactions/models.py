@@ -7,7 +7,7 @@ class Transaction(models.Model):
     currency = models.CharField(max_length=50)
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
     bank_name = models.CharField(max_length=50)
-    deposit_slip = models.FileField(upload_to='slips/')
+    deposit_slip = models.FileField(upload_to='')
     transaction_date = models.DateField()
     logged_by = models.CharField(max_length=50)
 
