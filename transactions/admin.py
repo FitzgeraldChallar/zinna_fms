@@ -38,4 +38,11 @@ class TransactionAdmin(admin.ModelAdmin):
         if request.user.groups.filter(name="Admin").exists():
            return True
         return False
+    
+    # ✅ Make is_verified read-only for registrars
+    def get_readonly_fields(self, request, obj=None):
+        readonly = list(super().get_readonly_fields(request, obj))
+        if not request.user.is_superuser and not request.user.groups.filter(name="Admin").exists():
+            readonly.append("is_verified")
+        return readonly
 
